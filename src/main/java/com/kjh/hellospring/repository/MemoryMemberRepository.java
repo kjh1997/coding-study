@@ -4,7 +4,7 @@ import com.kjh.hellospring.domain.Member;
 
 import java.util.*;
 
-public class MemoryMemberRepository implements MemberResitory {
+public class MemoryMemberRepository implements MemberRepository {
     private static Map<Long, Member> store = new HashMap<>();  // 실무에서는 동시성문제로 concurrent hash를 사용한다함
     private static long sequence = 0L; // 이것도 마찬가지로 위와 같은 문제로 atomlong같은걸 쓴다함
 

@@ -36,6 +36,11 @@ dependencies {
 	// object mapper
 	implementation("com.fasterxml.jackson.core:jackson-databind:2.14.2")
 
+	// cloud
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-commons', version: '2.2.7.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-context', version: '2.2.7.RELEASE'
+	implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-stream-rabbit', version: '3.0.8.RELEASE'
+
 }
 
 tasks.named('test') {

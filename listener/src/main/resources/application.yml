@@ -1,0 +1,28 @@
+
+server:
+  port:8081
+
+spring:
+  application:
+    name: listener
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    stream:
+      bindings:
+        "like.event":
+          destination: like.event.exchange
+          contentType: application/json
+          binder: local_rabbit
+          routingKey: like.event.key
+        "dislike.event":
+          destination: dislike.event.exchange
+          contentType: application/json
+          binder: local_rabbit
+          routingKey: dislike.event.key
+      binders:
+        local_rabbit:
+          type: rabbit

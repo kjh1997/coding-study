@@ -6,7 +6,29 @@
 <mapper namespace="com.mybatis.test.repository.INewsDAO">
 
     <!-- 뉴스 조회 -->
-    <select id="listNews" resultType="com.mybatis.test.entity.NewsEntity">
-        select title, journalist, publisher, reg_dt from news
+    <select id="listNews" parameterType="java.util.List" resultType="com.mybatis.test.dto.NewsDTO">
+        select title, journalist, publisher from news
     </select>
+
+    <select id="withExample" parameterType="java.time.LocalDateTime" resultType="com.mybatis.test.dto.NewsDTO">
+        with tmp as (
+            select * from news where reg_dt > #{std}
+        )
+        select title, journalist, publisher from tmp
+    </select>
+
+
+    <select id="findById" parameterType="java.lang.String" resultType="com.mybatis.test.dto.NewsDTO">
+        select id, title, journalist, publisher from news where id = #{id}
+    </select>
+
+    <insert id="insertNews" parameterType="com.mybatis.test.entity.NewsEntity">
+        Insert into news(title, journalist,  publisher, reg_dt) values
+        (#{title}, #{journalist}, #{publisher}, #{reg_dt})
+
+    </insert>
+
+
+
+
 </mapper>

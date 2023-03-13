@@ -39,7 +39,7 @@ public class MemberRestController {
     public String insert(@RequestBody NewsDTO newsDTO) {
         NewsEntity news = NewsEntity.builder().journalist(newsDTO.getJournalist()).publisher(newsDTO.getPublisher()).reg_dt(LocalDateTime.now()).title(newsDTO.getTitle()).build();
         System.out.println(newsDTO.toString());
-        newDAO.insertNews(newsDTO.getTitle(), newsDTO.getJournalist(), newsDTO.getPublisher(), LocalDateTime.now());
+//        newDAO.insertNews(newsDTO.getTitle(), newsDTO.getJournalist(), newsDTO.getPublisher(), LocalDateTime.now());
         return "success";
     }
 

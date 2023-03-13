@@ -13,12 +13,12 @@ spring:
   cloud:
     stream:
       bindings:
-        "like.event":
+        "input":
           destination: like.event.exchange
           contentType: application/json
           binder: local_rabbit
           routingKey: like.event.key
-        "dislike.event":
+        "output":
           destination: dislike.event.exchange
           contentType: application/json
           binder: local_rabbit

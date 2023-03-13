@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class NewsDTO {
+    private Integer id;
 
     private String title;
     private String journalist;

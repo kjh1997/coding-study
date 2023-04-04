@@ -13,8 +13,10 @@ package staticfactory;
 //
 //}
 
-public class Singleton {
-    private static Singleton singleton;
+import java.io.Serializable;
+
+public class Singleton implements Serializable {
+    public static Singleton singleton;
 
     public static Singleton getSingleton() {
         if (singleton == null) {
@@ -23,6 +25,21 @@ public class Singleton {
             }
         }
         return singleton;
+    }
+
+    public void hello() {
+        System.out.println("hello singleTon");
+    }
+
+    private Object readResolve() {
+        return singleton;
+    }
+
+
+    private Singleton() {
+        if (singleton != null) {
+            throw new IllegalStateException();
+        }
     }
 
 }

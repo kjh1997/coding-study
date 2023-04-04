@@ -1,9 +1,21 @@
 plugins {
     id 'java'
+//    id 'org.aspectj.aspectjweaver' version '1.9.19'
+
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
+
+//compileJava {
+//    options.compilerArgs += ["-Xlint:deprecation", "-Xlint:unchecked", "-showWeaveInfo"]
+//    options.weaveAll()
+//}
+//
+//compileTestJava {
+//    options.compilerArgs += ["-Xlint:deprecation", "-Xlint:unchecked", "-showWeaveInfo"]
+//    options.weaveAll()
+//}
 
 repositories {
     mavenCentral()
@@ -12,6 +24,15 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+
+    implementation 'org.aspectj:aspectjrt:1.9.6'
+    implementation 'org.aspectj:aspectjweaver:1.9.6'
+
 }
 
 test {
